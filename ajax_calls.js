@@ -35,3 +35,8 @@ function findTemperature(state, city) {
       }
   });
 }
+
+//makes the select work with materilize
+$(document).ready(function() {
+    $('select').material_select();
+  });
