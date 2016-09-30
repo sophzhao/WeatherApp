@@ -34,9 +34,19 @@ function findTemperature(state, city) {
           console.log(temp_f)
       }
   });
+
 }
 
 //makes the select work with materilize
 $(document).ready(function() {
     $('select').material_select();
   });
+
+}
+
+var state_json = $.getJSON("/states.json")
+var $select = $('#state_select');
+$(state_json).each(function (index, option) {    
+    var $option = $("<option/>").attr("value", option.abbreviation).text(option.name);
+    $select.append($option);
+}
