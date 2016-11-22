@@ -77,12 +77,17 @@ function findTemperature(state, city) {
 
 }
 
+function chooseColor() {
+  let colors = ['red','blue','green','black','teal','cyan','light-blue','purple','light-green','orange'];
+  return colors[Math.floor(Math.random() * colors.length)]
+}
 
 
 function createCard(state, city , tempC, tempF){
   realCity = city;
   city = city.replace(/ /g,'');
-  let html = `<div class='col s12 m3'> <div data-f='${tempF}' data-c='${tempC}' class='card blue-grey darken-1' id='${state+city}'> <div class='card-content white-text'> <span class='card-title'> ${state}, ${realCity}</span>
+  color = chooseColor();
+  let html = `<div class='col s12 m3'> <div data-f='${tempF}' data-c='${tempC}' class='card ${color}' id='${state+city}'> <div class='card-content white-text'> <span class='card-title'> ${state}, ${realCity}</span>
                             <h2 id='h2${state+city}'>${tempF}°F</h2>
                             <div class="switch" id='${state+city}'>
                                 <label>
